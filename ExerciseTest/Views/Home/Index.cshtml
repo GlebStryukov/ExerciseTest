@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ExerciseTest.Models.BookAuthor>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div>
+    <div align="right">
+        <a class="btn btn-success" href="/Home/ExportToExcel">Export to Excel table</a>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Book title</th>
+                <th scope="col">Book edition</th>
+                <th scope="col">Date published book</th>
+                <th scope="col">Book description</th>
+                <th scope="col">Full name author</th>
+                <th scope="col">Author date of birth</th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Book.Title)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Book.Edition)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Book.Publeshid_At)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Book.Description)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Author.FullName)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Author.DoB)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

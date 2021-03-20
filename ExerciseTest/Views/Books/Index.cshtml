@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ExerciseTest.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">
+                Titles
+            </th>
+            <th scope="col">
+                Description
+            </th>
+            <th scope="col">
+                Edition
+            </th>
+            <th scope="col">
+                Date published
+            </th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Edition)
+                </td>
+                <td scope="row">
+                    @Html.DisplayFor(modelItem => item.Publeshid_At)
+                </td>
+                <td>
+                    <a class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
